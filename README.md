@@ -5,15 +5,15 @@ Code and datasets for the paper "[Making Language Models Better Tool Learners wi
 ## Quick Links
 
 * [TRICE](#TRICE)
-  * [Overview](#Overview)
-  * [Requirements](#Requirements)
-  * [Tasks and Datasets](#Tasks-and-Datasets)
-    * [Data Generation](#Data-Generation)
-  * [Train](#Train)
-    * [Training Stage1](#Training-Stage1)
-    * [Training Stage2](#Training-Stage2)
-  * [Evaluate](#Evaluate)
-  * [Citation](#Citation)
+  * [Overview](#overview)
+  * [Requirements](#requirements)
+  * [Tasks and Datasets](#tasks-and-datasets)
+    * [Data Generation](#data-generation)
+  * [Train](#train)
+    * [Training Stage1](#training-stage1)
+    * [Training Stage2](#training-stage2)
+  * [Evaluate](#evaluate)
+  * [Citation](#citation)
 
 ## Overview
 
