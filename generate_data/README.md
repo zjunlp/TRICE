@@ -4,19 +4,19 @@ Here we introduce how to generate the training data for the **[Behavior Cloning 
 
 ## Behavior Cloning Data Generation
 
-During this stage, we construct the dataset based on the hypothesis that a LM needs a tool for help when it gives a wrong answer and does not need a tool when its answer is right. **So note that before generating the training data, you are recommended to first let your LM answer the question (remember to save the LM's response for each instance).** Questions with wrong answers can be saved in `data/raw/{task_name}/{dataset_name}_wrong.json` and questions with right answers can be saved in `data/raw/{task_name}/{dataset_name}_right.json`.
+During this stage, we construct the dataset based on the hypothesis that an LM needs a tool for help when it gives a wrong answer and does not need a tool when its answer is right. **So note that before generating the training data, you are recommended to first let your LM answer the question (remember to save the LM's response for each instance).** Questions with wrong answers can be saved in `data/raw/{task_name}/{dataset_name}_wrong.json` and questions with right answers can be saved in `data/raw/{task_name}/{dataset_name}_right.json`.
 
 Generate Tool APIs for questions with wrong answers:
 
 ```bash
 python generate_tool_api.py \
-	--input ../data/raw/math/GSM8K_wrong.json \
-	--output ../data/stage1/math/GSM8K_wrong.json \
-	--dataset_name GSM8K \
-	--mode w \
-	--multi_api_keys \
-	--engine gpt-turbo-0301 \
-	--api_keys_file ./openai_api_keys.txt
+    --input ../data/raw/math/GSM8K_wrong.json \
+    --output ../data/stage1/math/GSM8K_wrong.json \
+    --dataset_name GSM8K \
+    --mode w \
+    --multi_api_keys \
+    --engine gpt-turbo-0301 \
+    --api_keys_file ./openai_api_keys.txt
 ```
 
 Then merge `data/raw/{task_name}/{dataset_name}_right.json` and `data/stage1/{task_name}/{dataset_name}_wrong.json` into `data/stage1/{task_name}/{dataset_name}.json`. The merged file's format is as follows:
@@ -44,26 +44,26 @@ For **ChatGPT** and **InstructGPT**, we prompt them with instructions and few-sh
 
 ```bash
 python generate_response_gpt.py \
-	--input ../data/raw/math/math.json \
-	--output ../data/stage2/math/math_davinci_response.json \
-	--task math \
-	--mode w \
-	--multi_api_keys \
-	--example_num 4 \
-	--engine text-davinci-003 \
-	--api_key_file ./openai_api_keys.txt
+    --input ../data/raw/math/math.json \
+    --output ../data/stage2/math/math_davinci_response.json \
+    --task math \
+    --mode w \
+    --multi_api_keys \
+    --example_num 4 \
+    --engine text-davinci-003 \
+    --api_key_file ./openai_api_keys.txt
 ```
 
 For **Vicuna-7B** and **Alpaca-7B**, fine-tune them with LoRA for a few steps in order to equip them with initial abilities for question answering and tool generation (you can use a LoRA weight of the middle step of the training process in the Behavior Cloning stage), and then generate responses:
 
 ```bash
 python generate_response_llama.py \
-	--base_model PLMs/vicuna-7b \ # path to the weights of Vicuna-7B
-	--task math \
-	--data_path ../data/raw/math/math.json \
-	--lora_weights ../train/vicuna-lora/stage1/math/checkpoint-39 \ # path to the lora weights
-	--prompt_template vicuna \
-	--output_path ../data/stage2/math/math_vicuna_response.json
+    --base_model PLMs/vicuna-7b \ # path to the weights of Vicuna-7B
+    --task math \
+    --data_path ../data/raw/math/math.json \
+    --lora_weights ../train/vicuna-lora/stage1/math/checkpoint-39 \ # path to the lora weights
+    --prompt_template vicuna \
+    --output_path ../data/stage2/math/math_vicuna_response.json
 ```
 
 After all the responses are generated, the RLEF stage data folder structure is as follows (take `math` as an example):
@@ -81,11 +81,11 @@ Then score each response and generate the final training dataset:
 
 ```bash
 python score.py \
-	--task math \
-	--model vicuna \
-	--lora_weights ../train/vicuna-lora/stage1/math \
-	--data_path ../data/stage2/math \
-	--target_path ../data/stage2/math/math.json
+    --task math \
+    --model vicuna \
+    --lora_weights ../train/vicuna-lora/stage1/math \
+    --data_path ../data/stage2/math \
+    --target_path ../data/stage2/math/math.json
 ```
 
 Finally, the format of the training dataset `data/stage2/{task_name}/{task_name}.json` for the RLEF stage is as follows:
