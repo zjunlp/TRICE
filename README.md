@@ -161,7 +161,7 @@ python evaluate.py \
 If you use or extend our work, please cite the paper as follows:
 
 ```bibtex
-@article{DBLP:journals/corr/abs-2305-13068,
+@article{qiao2023trice,
   author       = {Shuofei Qiao and Honghao Gui and Qianghuai Jia and Huajun Chen and Ningyu Zhang},
   title        = {Making Language Models Better Tool Learners with Execution Feedback},
   journal      = {CoRR},
