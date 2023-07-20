@@ -517,7 +517,7 @@ if __name__ == "__main__":
 
     if not os.path.exists(args.target_path):
         os.mkdir(args.target_path)
-    target_path = os.path.join(args.target_path, f"{args.task.lower()}_{args.model}_eval.json")
+    target_path = os.path.join(args.target_path)
     with open(target_path, "w") as f:
         f.write(f"acc: {acc}, tool_rate: {tool_rate}\n")
         for data in outputs:

@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 from tqdm import tqdm
-from ..evaluate.evaluate_llama import (
+from ..evaluate.evaluate import (
     math_evaluate,
     lama_evaluate,
     qa_evaluate,
@@ -105,9 +105,8 @@ if __name__ == "__main__":
     #     model_data_dict[model] = outputs
     #     f.close()
 
-    dataset_name = args.data_path.split('/')[-1].strip()
     for model in models:
-        data_path = os.path.join(args.data_path, f"{dataset_name}_{model}_response.json")
+        data_path = os.path.join(args.data_path, f"{args.task}_{model}_response.json")
         f = open(data_path)
         lines = f.readlines()[1:]
         data_response = [json.loads(line) for line in lines]
@@ -115,7 +114,7 @@ if __name__ == "__main__":
         f.close()
 
     id_data_dict = {}
-    with open(os.path.join(args.data_path, f"{dataset_name}_gold_response.json"), "r") as f:     
+    with open(os.path.join(args.data_path, f"{args.task}_gold_response.json"), "r") as f:     
         gold_datas = f.readlines()
         for gold_data in gold_datas:
             gold_data = json.loads(gold_data)
@@ -179,7 +178,7 @@ if __name__ == "__main__":
     # write
     if not os.path.exists(args.target_path):
         os.mkdir(args.target_path)
-    target_path = os.path.join(args.target_path, f"{dataset_name}.json")
+    target_path = os.path.join(args.target_path)
     with open(target_path, "w") as f:
         for data in data_list:
             try:

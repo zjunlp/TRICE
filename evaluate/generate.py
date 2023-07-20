@@ -5,6 +5,7 @@ from tqdm import tqdm
 import torch
 from peft import PeftModel
 from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer
+
 from ..utils.prompter import Prompter
 
 
@@ -29,6 +30,7 @@ def main(
     output_path: str = "",
     prompt_template: str = "vicuna",
 ):
+    global use_cal
     assert (
         base_model
     ), "Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'"
@@ -145,6 +147,7 @@ def main(
                 f.write(json.dumps(data, ensure_ascii=False)+'\n')
             except:
                 pass
+
 
 
 if __name__ == "__main__":

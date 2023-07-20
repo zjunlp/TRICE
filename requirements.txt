@@ -1,0 +1,16 @@
+datasets==2.12.0
+fairscale==0.4.13
+faiss_gpu==1.7.2
+fire==0.5.0
+numpy==1.24.3
+openai==0.27.0
+packaging==23.1
+peft==0.2.0
+regex==2023.5.5
+Requests==2.31.0
+rouge==1.0.1
+tenacity==8.2.2
+tensorflow==2.13.0
+torch==1.13.1+cu117
+tqdm==4.65.0
+transformers==4.28.1
