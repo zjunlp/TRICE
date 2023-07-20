@@ -1,0 +1,4 @@
+{"instruction": "Given a question, answer it and you can use a QA model for help.", "input": "The City Council divide itself into ?", "output": "QA(What did the City Council divide itself into?)"}
+{"instruction": "Given a question, answer it and you can use a QA model for help.", "input": "Arcos de Canasí is a small town in the east of the La Habana Province of ?", "output": "QA(Which country is Arcos de Canasí located in?)"}
+{"instruction": "Given a question, answer it and you can use a QA model for help.", "input": "The steel is named after Damascus, the capital city of ?", "output": "QA(What is the capital city of Syria?)"}
+{"instruction": "Given a question, answer it and you can use a QA model for help.", "input": "Winners of the festivals «Chervona Ruta» (Ukraine), «Pearls of the Season» (Ukraine), «Boards» (Moscow), «Woodstock» (?", "output": "QA(Where is the Woodstock festival held?)"}

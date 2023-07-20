@@ -1,0 +1,4 @@
+{"instruction": "Given a question, answer it and you can use WikiSearch for help.", "input": "who has scored most runs in test cricket", "output": "WikiSearch(most runs scorer in test cricket)"}
+{"instruction": "Given a question, answer it and you can use WikiSearch for help.", "input": "How did Jock die in Dallas?", "output": "WikiSearch(Jock Ewing death)"}
+{"instruction": "Given a question, answer it and you can use WikiSearch for help.", "input": "where are the netherlands on a world map?", "output": "WikiSearch(Location of the Netherlands on world map)"}
+{"instruction": "Given a question, answer it and you can use WikiSearch for help.", "input": "what is nina dobrev nationality?", "output": "WikiSearch(Nina Dobrev nationality)"}
