@@ -89,15 +89,15 @@ In stage 1, we train the model in an instruct-tuning manner.
 ```bash
 cd train
 python train_stage1.py \
-	--base_model ../PLMs/vicuna-7b \
-	--data_path ../data/stage1/math/math.json \
-	--output_dir vicuna-lora/stage1/math \
-	--batch_size 1024 \
-	--micro_batch_size 128 \
-	--num_epochs 5 \
-	--learning_rate 1e-4 \
-	--cutoff_len 512 \
-	--prompt_template_name vicuna  # set to 'alpaca' for Alpaca-7B
+    --base_model ../PLMs/vicuna-7b \
+    --data_path ../data/stage1/math/math.json \
+    --output_dir vicuna-lora/stage1/math \
+    --batch_size 1024 \
+    --micro_batch_size 128 \
+    --num_epochs 5 \
+    --learning_rate 1e-4 \
+    --cutoff_len 512 \
+    --prompt_template_name vicuna  # set to 'alpaca' for Alpaca-7B
 ```
 
 ### Training Stage2
@@ -137,23 +137,23 @@ Before evaluating the model on the test set, you should first generate the respo
 ```bash
 cd evaluate
 python generate.py \
-	--base_model ../PLMs/vicuna-7b \
-	--task math \
-	--data_path ../data/dev/math/math.json \
-	--lora_weights ../train/vicuna-lora/stage2/math \
-	--output_path ../data/dev/math/math_response.json \
-	--prompt_template vicuna
+    --base_model ../PLMs/vicuna-7b \
+    --task math \
+    --data_path ../data/dev/math/math.json \
+    --lora_weights ../train/vicuna-lora/stage2/math \
+    --output_path ../data/dev/math/math_response.json \
+    --prompt_template vicuna
 ```
 
 Then evaluate the model performance based on the generated responses.
 
 ```bash
 python evaluate.py \
-	--task math \
-	--model vicuna \
-	--lora_weights ../train/vicuna-lora/stage2/math \
-	--data_path ../data/dev/math/math_response.json \
-	--target_path ../data/dev/math/math_result.json
+    --task math \
+    --model vicuna \
+    --lora_weights ../train/vicuna-lora/stage2/math \
+    --data_path ../data/dev/math/math_response.json \
+    --target_path ../data/dev/math/math_result.json
 ```
 
 ## Citation
