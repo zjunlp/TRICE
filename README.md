@@ -4,16 +4,16 @@ Code and datasets for the paper "[Making Language Models Better Tool Learners wi
 
 ## Quick Links
 
-- [TRICE](#TRICE)
-  - [Overview](#Overview)
-  - [Requirements](#Requirements)
-  - [Tasks and Datasets](#Tasks-and-Datasets)
-    - [Data Generation](#Data-Generation)
-  - [Train](#Train)
-    - [Training Stage1](#Training-Stage1)
-    - [Training Stage2](#Training-Stage2)
-  - [Evaluate](#Evaluate)
-  - [Citation](#Citation)
+* [TRICE](#TRICE)
+  * [Overview](#Overview)
+  * [Requirements](#Requirements)
+  * [Tasks and Datasets](#Tasks-and-Datasets)
+    * [Data Generation](#Data-Generation)
+  * [Train](#Train)
+    * [Training Stage1](#Training-Stage1)
+    * [Training Stage2](#Training-Stage2)
+  * [Evaluate](#Evaluate)
+  * [Citation](#Citation)
 
 ## Overview
 
@@ -45,7 +45,7 @@ Due to limited computational resources, we randomly sample train and test sets f
 
 ### Data Generation
 
-Given the lack of gold tool API labels, we utilize ChatGPT to automatically generate tool APIs for training stage-1. For training stage-2, we collect five responses for each question from four different models, e.g. ChatGPT, InstuctGPT, Vicuna-7B, Alpaca-7B, and the output of the training data in Behavior Cloning stage as the pseudo-human-expert response. For detailed data generation process, please refer to [here](https://github.com/zjunlp/TRICE/tree/main/generate_data).
+Given the lack of gold tool API labels, we utilize ChatGPT to automatically generate tool APIs for training stage-1. For training stage-2, we collect five responses for each question from four different models, e.g. ChatGPT, InstuctGPT, Vicuna-7B, Alpaca-7B, and the output of the training data in Behavior Cloning stage as the pseudo-human-expert response. For the detailed data generation process, please refer to [here](https://github.com/zjunlp/TRICE/tree/main/generate_data).
 
 The generated data should be placed under the `data` folder with the following structure:
 
@@ -84,7 +84,7 @@ data
 
 ### Training Stage1
 
-In stage1, we train the model in the instruct-tuning manner.
+In stage 1, we train the model in an instruct-tuning manner.
 
 ```bash
 cd train
@@ -102,7 +102,7 @@ python train_stage1.py \
 
 ### Training Stage2
 
-In stage2, we train the model by reinforcement learning based on the execution feedback.
+In stage 2, we train the model by reinforcement learning based on the execution feedback.
 
 ```bash
 cd train
@@ -132,7 +132,7 @@ python train_stage2.py \
 
 ## Evaluate
 
-Before evaluate the model on the test set, you should first generate the response.
+Before evaluating the model on the test set, you should first generate the response.
 
 ```bash
 cd evaluate
