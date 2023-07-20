@@ -19,7 +19,7 @@ Code and datasets for the paper "[Making Language Models Better Tool Learners wi
 
 <img src="figs/figure1.gif" alt="figure1" style="zoom: 20%;" />
 
-In this paper, we focus on addressing the challenge of selective utilization of tools by LLMs and propose a two-stage end-to-end training framework dubbed **TRICE** (**T**ool Lea**R**ning w**I**th Exe**C**ution F**E**edback) to make LLMs better tool learners with execution feedback. A overview of our proposed training method can be seen as follows:
+In this paper, we focus on addressing the challenge of selective utilization of tools by LLMs and propose a two-stage end-to-end training framework dubbed **TRICE** (**T**ool Lea**R**ning w**I**th Exe**C**ution F**E**edback) to make LLMs better tool learners with execution feedback. An overview of our proposed training method can be seen as follows:
 
 <img src="figs/method.png" alt="method" style="zoom: 13%;" />
 
