@@ -2,6 +2,10 @@
 
 Code and datasets for the paper "[Making Language Models Better Tool Learners with Execution Feedback](https://arxiv.org/abs/2305.13068)".
 
+## 🔔 News
+
+- We upload a [tutorial](./tutorial/tutorial.pdf) entitled "From Chain-of-Thought to LLM Powered Autonomous Agent".
+
 ## Quick Links
 
 * [TRICE](#TRICE)
