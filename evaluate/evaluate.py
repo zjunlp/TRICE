@@ -186,12 +186,9 @@ def math_evaluate(args, data_responses):
             except:
                 pred = None
         else:
-            sentences = response.split(".")
-            sentences = [s for s in sentences if s != ""]
-            pred_sentence = sentences[-1] if len(sentences) > 0 else ""
-            pattern = re.compile(r"-?[1-9]\d*")
-            pred = pattern.findall(pred_sentence)
-            pred = int(pred[-1].replace(",", "")) if len(pred) > 0 else None
+            pattern = re.compile(r"\d+[\.\,]?\d*")
+            pred = pattern.findall(response)
+            pred = pred[-1].replace(",", "") if len(pred) > 0 else None
 
         id = data["id"]
         answer = data["answer"].replace(",", "")
