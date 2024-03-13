@@ -1,6 +1,6 @@
 # TRICE
 
-Code and datasets for the paper "[Making Language Models Better Tool Learners with Execution Feedback](figs/paper.pdf)".
+Code and datasets for the NAACL2024 paper "[Making Language Models Better Tool Learners with Execution Feedback](figs/paper.pdf)".
 
 ## 🔔 News
 
