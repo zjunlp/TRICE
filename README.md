@@ -10,13 +10,14 @@ Code and datasets for the NAACL2024 paper "[Making Language Models Better Tool L
 
 * [TRICE](#TRICE)
   * [Overview](#overview)
-  * [Requirements](#requirements)
+  * [Installation](#installation)
   * [Tasks and Datasets](#tasks-and-datasets)
     * [Data Generation](#data-generation)
   * [Train](#train)
     * [Training Stage1](#training-stage1)
     * [Training Stage2](#training-stage2)
   * [Evaluate](#evaluate)
+  * [Acknowledgement](#Acknowledgement)
   * [Citation](#citation)
 
 ## Overview
@@ -27,13 +28,13 @@ In this paper, we focus on addressing the challenge of selective utilization of 
 
 <img src="figs/method.png" alt="method" style="zoom: 13%;" />
 
-In stage-1 (**Behavior Cloning**), we conduct instruct-tuning on the dataset to let the model imitate the tool-using behavior.  In stage-2 (**RLEF**), we further reinforce the model with tool execution feedback by aligning it with desirable candidate responses. The performance of TRICE across various tasks with different backbone models is as follows:
+In stage-1 (**Behavior Cloning**), we conduct instruct-tuning on the dataset to let the model imitate the tool-using behavior.  In stage-2 (**RLEF**), we further reinforce the model with tool execution feedback by aligning it with desirable candidate responses.
 
-<img src="figs/performance.png" alt="performance" style="zoom: 25%;" />
-
-## Requirements
+## Installation
 
 ```bash
+git clone https://github.com/zjunlp/TRICE.git
+cd TRICE
 pip install -r requirements.txt
 ```
 
@@ -159,6 +160,10 @@ python evaluate.py \
     --data_path ../data/dev/math/math_response.json \
     --target_path ../data/dev/math/math_result.json
 ```
+
+## Acknowledgement
+
+Our training code of stage-I for Vicuna and Alpaca references [alpaca-lora](https://github.com/tloen/alpaca-lora) and for ChatGLM references [ChatGLM-Tuning](https://github.com/mymusise/ChatGLM-Tuning). The training code of stage-II for all the models references [RRHF](https://github.com/GanjinZero/RRHF). Thanks for their great jobs!
 
 ## Citation
 
